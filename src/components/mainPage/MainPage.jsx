@@ -1,9 +1,16 @@
-const App = () => {
+import Header from '@components/header/Header';
+import Design from '@components/design/Design';
+
+import './sass/index.scss';
+
+const MainPage = () => {
   return (
-    <div>
-      <h1>atlant</h1>
-    </div>
+    <>
+      <Header />
+      <div className="main-img"></div>
+      <Design />
+    </>
   );
 };
 
-export default App;
+export default MainPage;

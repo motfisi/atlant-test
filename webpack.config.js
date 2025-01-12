@@ -16,6 +16,7 @@ module.exports = (env, argv) => {
         '@src': path.resolve(__dirname, 'src'),
         '@components': path.resolve(__dirname, 'src', 'components'),
         '@sass': path.resolve(__dirname, 'src', 'sass'),
+        '@assets': path.resolve(__dirname, 'src', 'assets'),
         '@constants': path.resolve(__dirname, 'src', 'constants'),
         '@node_modules': path.resolve(__dirname, 'node_modules'),
       },
@@ -31,6 +32,13 @@ module.exports = (env, argv) => {
         {
           test: /\.scss$/,
           use: ['style-loader', 'css-loader', 'sass-loader'],
+        },
+        {
+          test: /\.(ttf|woff|woff2|eot|otf)$/,
+          type: 'asset/resource',
+          generator: {
+            filename: 'assets/fonts/[name][ext]',
+          },
         },
       ],
     },
