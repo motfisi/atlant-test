@@ -34,12 +34,22 @@
     background-repeat: no-repeat;
     display: flex;
 
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
+
     &__text-container {
       width: 40vw;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+
+      @media (max-width: 768px) {
+        width: 100vw;
+        padding: 0 5%;
+        text-align: center;
+      }
     }
 
     &__text1,
@@ -63,9 +73,110 @@
   &__machine-img {
     width: 60vw;
     height: 100vh;
-    background-image: url('@assets/img/banner2.jpg');
+    background-image: url('@assets/img/banner2.png');
     background-size: contain;
     background-repeat: no-repeat;
-    background-size: left center;
+    background-position: center center;
+
+    @media (max-width: 768px) {
+      width: 90vw;
+      height: 50vh;
+      margin-left: 5vw;
+    }
+  }
+
+  &__cards-container {
+    width: 100vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  &__card {
+    width: 20vw;
+    height: 20vw;
+    position: relative;
+    display: flex;
+    gap: 14px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+
+    @media (max-width: 1300px) {
+      width: 33vw;
+      height: 33vw;
+    }
+
+    @media (max-width: 768px) {
+      width: 50vw;
+      height: 50vw;
+    }
+
+    @media (max-width: 510px) {
+      width: 70vw;
+      height: 70vw;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 10%;
+      bottom: 10%;
+      right: 0;
+      width: 1px;
+      background-color: #000;
+
+      @media (max-width: 510px) {
+        display: none;
+      }
+    }
+
+    &:last-child::after {
+      display: none;
+    }
+
+    &__img {
+      width: 30%;
+      height: 30%;
+      background-size: contain;
+      background-repeat: no-repeat;
+
+      &--1 {
+        background-image: url('@assets/img/icon_1.png');
+      }
+
+      &--2 {
+        background-image: url('@assets/img/icon_2.png');
+      }
+
+      &--3 {
+        background-image: url('@assets/img/icon_3.png');
+      }
+
+      &--4 {
+        background-image: url('@assets/img/icon_4.png');
+      }
+
+      &--5 {
+        background-image: url('@assets/img/icon_5.png');
+      }
+    }
+
+    &__text1,
+    &__text2 {
+      width: 100%;
+      text-align: center;
+    }
+
+    &__text1 {
+      font-weight: 500;
+      font-size: 1.3rem;
+    }
+
+    &__text2 {
+      font-weight: 400;
+      font-size: 1rem;
+    }
   }
 }
