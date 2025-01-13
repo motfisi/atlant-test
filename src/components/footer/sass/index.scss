@@ -92,6 +92,8 @@
     }
 
     &__text-container {
+      cursor: pointer;
+
       @media (max-width: 768px) {
         margin: 0 auto;
       }

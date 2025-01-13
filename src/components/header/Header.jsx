@@ -1,5 +1,12 @@
 import './sass/index.scss';
 
+const scrollToSection = (id) => {
+  const section = document.getElementById(id);
+  if (section) {
+    section.scrollIntoView({ behavior: 'smooth' });
+  }
+};
+
 const Header = () => {
   return (
     <div className="header__container">
@@ -10,11 +17,22 @@ const Header = () => {
         <div className="header__titles__second">INTENSE EXPERT</div>
       </div>
       <div className="header__buttons__container">
-        <div className="header__button header__button__design">Дизайн</div>
-        <div className="header__button header__button__convenience">
+        <div
+          className="header__button header__button__design"
+          onClick={() => scrollToSection('design')}
+        >
+          Дизайн
+        </div>
+        <div
+          className="header__button header__button__convenience"
+          onClick={() => scrollToSection('convenience')}
+        >
           Удобство
         </div>
-        <div className="header__button header__button__reliability">
+        <div
+          className="header__button header__button__reliability"
+          onClick={() => scrollToSection('reliability')}
+        >
           Надёжность
         </div>
         <div className="header__button header__button__buy-container">

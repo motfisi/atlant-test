@@ -1,6 +1,26 @@
+import { useState, useEffect, useRef } from 'react';
 import './sass/index.scss';
 
 const Convenience = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const imgRef = useRef(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!imgRef.current) return;
+      const rect = imgRef.current.getBoundingClientRect();
+      const windowHeight =
+        window.innerHeight || document.documentElement.clientHeight;
+
+      if (rect.top <= windowHeight && rect.bottom >= 0) {
+        setIsVisible(true);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <>
       <div className="convenience__container">
@@ -14,7 +34,10 @@ const Convenience = () => {
           <span className="convenience__text2__bold">до 7,5 кг.</span>
         </div>
       </div>
-      <div className="convenience__img" />
+      <div
+        ref={imgRef}
+        className={`convenience__img ${isVisible ? 'visible' : ''}`}
+      />
       <div className="convenience__card">
         <div className="convenience__card__img convenience__card__img--1" />
         <div className="convenience__card__text-container">

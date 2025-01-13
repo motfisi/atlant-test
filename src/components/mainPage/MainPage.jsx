@@ -11,9 +11,15 @@ const MainPage = () => {
     <>
       <Header />
       <div className="main-img"></div>
-      <Design />
-      <Convenience />
-      <Reliability />
+      <div id="design">
+        <Design />
+      </div>
+      <div id="convenience">
+        <Convenience />
+      </div>
+      <div id="reliability">
+        <Reliability />
+      </div>
       <Footer />
     </>
   );

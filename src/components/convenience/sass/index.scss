@@ -39,6 +39,17 @@
     background-repeat: no-repeat;
     background-position: top center;
 
+    transform: translateX(-100%);
+    opacity: 0;
+    transition:
+      transform 1s ease,
+      opacity 1s ease;
+
+    &.visible {
+      transform: translateX(0);
+      opacity: 1;
+    }
+
     @media (max-width: 1024px) {
       height: 80vh;
     }

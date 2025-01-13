@@ -1,5 +1,12 @@
 import './sass/index.scss';
 
+const scrollToSection = (id) => {
+  const section = document.getElementById(id);
+  if (section) {
+    section.scrollIntoView({ behavior: 'smooth' });
+  }
+};
+
 const Footer = () => {
   return (
     <div className="footer__container">
@@ -34,11 +41,26 @@ const Footer = () => {
 
       <div className="footer__right">
         <div className="footer__right__text-container">
-          <span className="footer__text">Дизайн</span>
+          <span
+            className="footer__text"
+            onClick={() => scrollToSection('design')}
+          >
+            Дизайн
+          </span>
           <span className="footer__right__plk" />
-          <span className="footer__text">Удобство</span>
+          <span
+            className="footer__text"
+            onClick={() => scrollToSection('convenience')}
+          >
+            Удобство
+          </span>
           <span className="footer__right__plk" />
-          <span className="footer__text">Надёжность</span>
+          <span
+            className="footer__text"
+            onClick={() => scrollToSection('reliability')}
+          >
+            Надёжность
+          </span>
           <span className="footer__right__plk" />
           <span className="footer__text">Купить</span>
         </div>
